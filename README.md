@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!--
+# Steven G. Opferman | steven.g.opferman@gmail.com
+# My personal template for README.md files, because I'm lazy :P
+# Adapted from:
+#   https://github.com/othneildrew/Best-README-Template/
+#   https://github.com/kylelobo/The-Documentation-Compendium/
+-->
 
-## Available Scripts
+<h1 align="center">Information Overload and Bias in the Hiring Process</h1>
 
-In the project directory, you can run:
+<p align="center">
+ Website to collect digital trace data for the information overload in hiring study at Stanford University.
+<br>
+</p>
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [About](#about)
+- [Usage](#usage)
+- [Getting Started](#getting_started)
+- [Acknowledgements](#acknowledgements)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## About <a name="about"></a>
 
-### `npm test`
+The HIO website is designed to be embedded within an `<iframe>` in a Qualtrics survey, allowing researchers to combine the survey responses with the digital trace data collected by the site.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Participants see resume content for the same candidate, but with different names (varying gender and race). The participant experiences the high, moderate, or low information condition, and responds to questions about the candidate in a simulated hiring process.
 
-### `npm run build`
+The HIO website tracks how the participant interacts with it through clicks and scrolling, which the researcher can combine with the survey responses to see how information overload may affect bias in the participant's decision.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage <a name="usage"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The website requires certain parameters to be specified in the URL. The format is the following:
 
-### `npm run eject`
+> http://localhost:3000/#/candidate/:qualtricsUserId/?name=:candidateName
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`:qualtricsUserId` and `:candidateName` should be replaced with the specific values needed.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The HIO website can be embedded in Qualtrics like so:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> `<iframe height="830px" width="100%" src="DOMAIN_HERE/#/candidate/${e://Field/ResponseID}/?name=${e://Field/candidateName}"></iframe>`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Learn More
+## Getting Started <a name="getting_started"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+These instructions will get you a copy of the project up and running.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repo.
 
-### Code Splitting
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Install dependencies.
 
-### Analyzing the Bundle Size
+   ```sh
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Runs the app in the development mode.
 
-### Making a Progressive Web App
+   ```sh
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Advanced Configuration
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgements <a name="acknowledgements"></a>
 
-### Deployment
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This project draws heavily from the [GCA website](https://github.com/TheFirstQuestion/GCA-website), which was originally developed by [Neha Sharma](https://github.com/sharman99).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# How It Works
+
+TODO
