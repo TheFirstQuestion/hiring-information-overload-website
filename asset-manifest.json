@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hiring-information-overload-website/static/css/main.073c9b0a.css",
+    "main.js": "/hiring-information-overload-website/static/js/main.463c385e.js",
+    "index.html": "/hiring-information-overload-website/index.html",
+    "main.073c9b0a.css.map": "/hiring-information-overload-website/static/css/main.073c9b0a.css.map",
+    "main.463c385e.js.map": "/hiring-information-overload-website/static/js/main.463c385e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.463c385e.js"
+  ]
+}
