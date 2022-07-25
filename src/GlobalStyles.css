@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+
+/* ############################## Big-Picture Positioning ############################# */
+#root {
+  height: 100%;
+  min-height: 100vh;
+  font-size: 20px;
+}
+
+.App {
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  justify-content: center;
+}

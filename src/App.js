@@ -1,23 +1,20 @@
-import "./App.css";
+import React from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
+// import firebase from "./firebase";
+import Candidate from "./Candidate/Candidate";
+// import Admin from "./Admin/Admin";
+import "./GlobalStyles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <HashRouter>
+          <Routes>
+            <Route path="/candidate/:qualtricsUserId" element={<Candidate />} />
+          </Routes>
+        </HashRouter>
+      </div>
+    );
+  }
 }
-
-export default App;

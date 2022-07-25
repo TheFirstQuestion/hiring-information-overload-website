@@ -36,13 +36,13 @@ The HIO website tracks how the participant interacts with it through clicks and 
 
 The website requires certain parameters to be specified in the URL. The format is the following:
 
-> http://localhost:3000/#/candidate/:qualtricsUserId/?name=:candidateName
+> http://DOMAIN_HERE/#/candidate/:qualtricsUserId/?name=:candidateName&load=:load
 
-`:qualtricsUserId` and `:candidateName` should be replaced with the specific values needed.
+`:qualtricsUserId`, `:candidateName`, and `:load` should be replaced with the specific values needed. `:load` should be `high`, `mod`, or `low`.
 
 The HIO website can be embedded in Qualtrics like so:
 
-> `<iframe height="830px" width="100%" src="DOMAIN_HERE/#/candidate/${e://Field/ResponseID}/?name=${e://Field/candidateName}"></iframe>`
+> `<iframe height="830px" width="100%" src="https://DOMAIN_HERE/#/candidate/${e://Field/ResponseID}/?name=${e://Field/candidateName}&load=${e://Field/infoLoad}"></iframe>`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -53,7 +53,7 @@ These instructions will get you a copy of the project up and running.
 1. Clone the repo.
 
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/TheFirstQuestion/hiring-information-overload-website.git
    ```
 
 2. Install dependencies.
@@ -68,7 +68,7 @@ These instructions will get you a copy of the project up and running.
    npm start
    ```
 
-   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   Open [http://localhost:3000/hiring-information-overload-website](http://localhost:3000/hiring-information-overload-website) to view it in your browser.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
