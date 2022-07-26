@@ -70,12 +70,23 @@ These instructions will get you a copy of the project up and running.
 
    Open [http://localhost:3000/hiring-information-overload-website](http://localhost:3000/hiring-information-overload-website) to view it in your browser.
 
+4. To deploy to GitHub Pages:
+
+   ```sh
+   npm run deploy
+   ```
+
+   The site will be available at https://YOUR_GITHUB_USERNAME.github.io/hiring-information-overload-website/
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Acknowledgements <a name="acknowledgements"></a>
 
-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - This project draws heavily from the [GCA website](https://github.com/TheFirstQuestion/GCA-website), which was originally developed by [Neha Sharma](https://github.com/sharman99).
+- This project uses [react-markdown](https://www.npmjs.com/package/react-markdown) to render the resume information as rich text.
+- This project uses [react-tabs](https://www.npmjs.com/package/react-tabs) to create the basic UI.
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- The site [Lorem Markdownum](https://jaspervdj.be/lorem-markdownum/) was helpful for creating dummy data for testing purposes.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

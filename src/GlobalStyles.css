@@ -12,3 +12,10 @@
   display: flex;
   justify-content: center;
 }
+
+html,
+body,
+.App,
+.App > div {
+  width: 100%;
+}
