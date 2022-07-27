@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/hiring-information-overload-website/static/css/main.1e582660.css",
-    "main.js": "/hiring-information-overload-website/static/js/main.11c2cb8d.js",
+    "main.css": "/hiring-information-overload-website/static/css/main.8fbdd38c.css",
+    "main.js": "/hiring-information-overload-website/static/js/main.3f50d9d1.js",
+    "static/media/resume.md": "/hiring-information-overload-website/static/media/resume.8c269877188eb21db6f4.md",
+    "static/media/interview1.md": "/hiring-information-overload-website/static/media/interview1.03d818821da34bc4e11d.md",
+    "static/media/cover_letter.md": "/hiring-information-overload-website/static/media/cover_letter.02590a472818d4ce0e8f.md",
     "index.html": "/hiring-information-overload-website/index.html",
-    "main.1e582660.css.map": "/hiring-information-overload-website/static/css/main.1e582660.css.map",
-    "main.11c2cb8d.js.map": "/hiring-information-overload-website/static/js/main.11c2cb8d.js.map"
+    "main.8fbdd38c.css.map": "/hiring-information-overload-website/static/css/main.8fbdd38c.css.map",
+    "main.3f50d9d1.js.map": "/hiring-information-overload-website/static/js/main.3f50d9d1.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e582660.css",
-    "static/js/main.11c2cb8d.js"
+    "static/css/main.8fbdd38c.css",
+    "static/js/main.3f50d9d1.js"
   ]
 }
