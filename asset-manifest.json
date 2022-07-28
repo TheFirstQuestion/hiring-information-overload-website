@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/hiring-information-overload-website/static/css/main.8fbdd38c.css",
-    "main.js": "/hiring-information-overload-website/static/js/main.3f50d9d1.js",
-    "static/media/resume.md": "/hiring-information-overload-website/static/media/resume.8c269877188eb21db6f4.md",
-    "static/media/interview1.md": "/hiring-information-overload-website/static/media/interview1.03d818821da34bc4e11d.md",
+    "main.css": "/hiring-information-overload-website/static/css/main.1ad952f3.css",
+    "main.js": "/hiring-information-overload-website/static/js/main.cfc35dcd.js",
+    "static/media/resume.md": "/hiring-information-overload-website/static/media/resume.e0cf4b21d3a6f6c74818.md",
+    "static/media/reference_check.md": "/hiring-information-overload-website/static/media/reference_check.2d15ef14fa86a4c8c179.md",
+    "static/media/skills_test.md": "/hiring-information-overload-website/static/media/skills_test.29496c4528f458a9c975.md",
+    "static/media/interview1.md": "/hiring-information-overload-website/static/media/interview1.4a489150f446acb3f0c7.md",
+    "static/media/interview2.md": "/hiring-information-overload-website/static/media/interview2.86c1762967fa89ddc7d8.md",
     "static/media/cover_letter.md": "/hiring-information-overload-website/static/media/cover_letter.02590a472818d4ce0e8f.md",
     "index.html": "/hiring-information-overload-website/index.html",
-    "main.8fbdd38c.css.map": "/hiring-information-overload-website/static/css/main.8fbdd38c.css.map",
-    "main.3f50d9d1.js.map": "/hiring-information-overload-website/static/js/main.3f50d9d1.js.map"
+    "main.1ad952f3.css.map": "/hiring-information-overload-website/static/css/main.1ad952f3.css.map",
+    "main.cfc35dcd.js.map": "/hiring-information-overload-website/static/js/main.cfc35dcd.js.map"
   },
   "entrypoints": [
-    "static/css/main.8fbdd38c.css",
-    "static/js/main.3f50d9d1.js"
+    "static/css/main.1ad952f3.css",
+    "static/js/main.cfc35dcd.js"
   ]
 }
