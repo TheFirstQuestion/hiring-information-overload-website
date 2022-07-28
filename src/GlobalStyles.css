@@ -19,3 +19,41 @@ body,
 .App > div {
   width: 100%;
 }
+
+/* ############################## Typography ############################# */
+
+/* The text of the page */
+.candidate {
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+}
+
+/* "Applicant: x" header */
+.candidate > :first-child {
+  text-align: center;
+}
+
+/* Headings */
+.candidate h1 {
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+.candidate h2 {
+  text-decoration: underline;
+  font-size: 1.8em;
+}
+
+.candidate h3 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.candidate h4 {
+  font-size: 1.3em;
+}
+
+.candidate h5 {
+  color: #888;
+  font-size: 1.1rem;
+}

@@ -21,8 +21,8 @@
 }
 
 /* The content of the tab */
-.candidate {
-  margin-left: calc(max(17%, 235px) + 20px);
+.candidate .react-tabs {
+  margin-left: max(17%, 235px);
 }
 
 .react-tabs__tab {

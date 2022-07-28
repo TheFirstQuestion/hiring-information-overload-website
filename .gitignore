@@ -4,6 +4,9 @@
 # Delete irrelevant entries as appropriate
 ####################################################################
 
+# File where API key and password are defined
+config.js
+
 ############################## Create React App #############################
 
 # dependencies

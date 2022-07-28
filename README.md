@@ -38,11 +38,11 @@ The website requires certain parameters to be specified in the URL. The format i
 
 > http://DOMAIN_HERE/#/candidate/:qualtricsUserId/?name=:candidateName&load=:load
 
-`:qualtricsUserId`, `:candidateName`, and `:load` should be replaced with the specific values needed. `:load` should be `high`, `mod`, or `low`.
+`:qualtricsUserId`, `:candidateName`, and `:load` should be replaced with the specific values needed. `:load` should be `0`, `1`, or `2`, which are (respectively) interpreted as low, moderate, and high information conditions.
 
 The HIO website can be embedded in Qualtrics like so:
 
-> `<iframe height="830px" width="100%" src="https://DOMAIN_HERE/#/candidate/${e://Field/ResponseID}/?name=${e://Field/candidateName}&load=${e://Field/infoLoad}"></iframe>`
+> `<iframe height="830px" width="100%" src="https://DOMAIN_HERE/#/candidate/${e://Field/ResponseID}/?name=${e://Field/candidateName}&load=${e://Field/infoLevel}"></iframe>`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -95,3 +95,6 @@ These instructions will get you a copy of the project up and running.
 # How It Works
 
 TODO
+
+- [In-browser markdown editor with live preview](https://remarkjs.github.io/react-markdown/)
+- [Markdown Reference](https://commonmark.org/help/)
