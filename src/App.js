@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 // import firebase from "./firebase";
 import Candidate from "./Candidate/Candidate";
-// import Admin from "./Admin/Admin";
+import Admin from "./Admin/Admin";
 import "./GlobalStyles.css";
 
 export default class App extends React.Component {
@@ -12,6 +12,7 @@ export default class App extends React.Component {
         <HashRouter>
           <Routes>
             <Route path="/candidate/:qualtricsUserId" element={<Candidate />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </HashRouter>
       </div>

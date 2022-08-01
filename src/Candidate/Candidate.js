@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ReactMarkdown from "react-markdown";
-import recordActivity from "../Firebase/firebase.js";
+import { recordActivity } from "../Firebase/firebase.js";
 import "./react-tabs.css";
 
 export default function Candidate(props) {
