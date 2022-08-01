@@ -20,9 +20,18 @@ export default function Candidate(props) {
   const [interview2Value, setInterview2Value] = useState("");
   const [skillsTestValue, setSkillsTestValue] = useState("");
   const [referenceCheckValue, setReferenceCheckValue] = useState("");
+  let prevPercent = 0;
 
   // Runs on first render (similar to componentDidMount)
   useEffect(() => {
+    // Log activity
+    recordActivity(
+      qualtricsUserId,
+      "load",
+      "page rendered",
+      "page has rendered"
+    );
+    // Print for debugging purposes
     console.log("Qualtrics ID: " + qualtricsUserId);
 
     // Low, moderate, and high
@@ -40,6 +49,32 @@ export default function Candidate(props) {
       fileToVar("interview2", setInterview2Value);
       fileToVar("reference_check", setReferenceCheckValue);
     }
+
+    // Scroll tracking
+    setInterval(() => {
+      const docRect = document
+        .getElementsByClassName("App")[0]
+        .getBoundingClientRect();
+
+      const contentHeight = docRect.height;
+      const viewHeight = window.innerHeight;
+      const maxPosition = contentHeight - viewHeight;
+
+      const scrollPosition = Math.abs(contentHeight - docRect.bottom);
+      const scrollPercent = Math.round((scrollPosition / maxPosition) * 100);
+
+      if (Math.abs(scrollPercent - prevPercent) > 5) {
+        recordActivity(
+          qualtricsUserId,
+          "scroll",
+          scrollPercent,
+          "scrolled to " + scrollPercent + "%"
+        );
+        // eslint throws a warning because prevPercent gets reset every time the component re-renders. But this is the behavior that we want!
+        // eslint-disable-next-line
+        prevPercent = scrollPercent;
+      }
+    }, 1000);
   }, [props, infoLevel, qualtricsUserId]);
 
   function handleTabClick(tabNum) {
