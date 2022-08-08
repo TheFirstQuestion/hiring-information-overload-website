@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { CSVLink } from "react-csv";
+// We've commented out the dummy data, but it'll save time if we need it again
+// eslint-disable-next-line
 import { downloadAllData, createDummyData } from "../Firebase/firebase";
 import "./Admin.css";
 // Contains sensitive information, so you have to create this file yourself
