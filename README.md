@@ -96,5 +96,82 @@ These instructions will get you a copy of the project up and running.
 
 TODO
 
-- [In-browser markdown editor with live preview](https://remarkjs.github.io/react-markdown/)
-- [Markdown Reference](https://commonmark.org/help/)
+# Updating Resume Information
+
+Hi Claire! Here's the step-by-step info on updating the resume information.
+
+## The Very First Time
+
+1. **Navigate to the place where you want to set up the project.**
+
+   ```sh
+   cd ~/Desktop
+   ```
+
+2. **Clone the repository.** This will get all the files on your computer and put them in a folder called `hiring-information-overload-website`.
+
+   ```sh
+   git clone https://github.com/TheFirstQuestion/hiring-information-overload-website.git
+   ```
+
+3. **Set up a GitHub account.** [GitHub](https://github.com/) is the place where the code is stored, and where the website is hosted. **Let me know what your username is so I can add you to the code repository.**
+
+4. **Connect `git` to GitHub.** You'll talk with GitHub through a command line tool called `git`. (Each line is a separate command; run them one at a time.)
+
+   ```sh
+   git config --global user.name "your_github_username"
+   git config --global user.email "your_github_email"
+   git config --global credential.helper "cache --timeout=31536000"
+   ```
+
+5. **Navigate to the project.**
+
+   ```sh
+   cd hiring-information-overload-website
+   ```
+
+6. **Follow the steps below.** At some point, you'll be prompted for your GitHub username and password. The username is your username, but **the password is not your password!** Instead, you'll need to:
+
+7. **Generate a Personal Access Token.** It's like a password, but more safe. Go to [your account settings](https://github.com/settings/tokens/new) and fill out the fields. You can set the expiration for "Never." Make sure to select the `repo` scope, so you can write to the repository. **Paste this token into the password field in the login prompt.** (It may not look like anything pasted, but it has!)
+
+## Every Time
+
+1. **Navigate to the project.**
+
+   ```sh
+   cd ~/Desktop/hiring-information-overload-website
+   ```
+
+2. **Grab the latest version of the code.** It's really important to keep everythhing in sync!
+
+   ```sh
+   git pull
+   ```
+
+3. **Write the information in Markdown.** The easiest way to do this is probably to use [an in-browser markdown editor with live preview](https://remarkjs.github.io/react-markdown/) to make sure you have the syntax correct. Here's a [helpful Markdown cheat sheet](https://commonmark.org/help/) for reference.
+
+4. **Open the document files.** You'll need to use a [plain-text editor](https://www.howtogeek.com/795509/why-you-need-a-plain-text-editor/), such as [Atom](https://atom.io/), [Sublime Text](https://www.sublimetext.com/), or [Visual Studio Code](https://code.visualstudio.com/) to edit the Markdown files.
+
+   The Markdown files are all in `/hiring-information-overload-website/src/ApplicantData`.
+
+5. **Copy/paste the Markdown into each file.** Select all, paste, save, and repeat.
+
+6. **Save your changes.**
+
+   ```sh
+   git add . && git commit -m 'a message about what you changed'
+   ```
+
+7. **Publish your changes.** The previous step saved the changes on _your_ computer; now, you need to update the central code repository.
+
+   ```sh
+   git push origin main
+   ```
+
+8. **Deploy the website.** You've updated the repository, so now you need to tell the website that an update is available.
+
+   ```sh
+   npm run deploy
+   ```
+
+9. **Check to make sure it worked.** The website may take a few minutes to update. Make sure everything looks the way it should - if not, let me know!

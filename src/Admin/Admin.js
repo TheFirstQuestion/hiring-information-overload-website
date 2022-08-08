@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { CSVLink } from "react-csv";
-import { downloadAllData } from "../Firebase/firebase";
+import { downloadAllData, createDummyData } from "../Firebase/firebase";
 import "./Admin.css";
 // Contains sensitive information, so you have to create this file yourself
 import { adminPassword } from "../config.js";
 
 export default function Admin(props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [passwordAttempt, setPasswordAttempt] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [downloadState, setDownloadState] = useState("");
@@ -15,15 +15,15 @@ export default function Admin(props) {
 
   async function downloadData() {
     setDownloadState("Downloading...");
-    downloadAllData(updateStatus).then((d) => {
-      setData(d[0]);
+    downloadAllData(updateDownloadProgress).then((d) => {
+      setData(d);
       setDownloadState("Done!");
       setDoneGettingData(true);
     });
   }
 
-  function updateStatus(i, n) {
-    setDownloadState("Downloading #" + (i + 1) + " of " + n + "...");
+  function updateDownloadProgress(i, n) {
+    setDownloadState("Downloading #" + i + " of " + n);
   }
 
   // For logging in
@@ -66,6 +66,7 @@ export default function Admin(props) {
       {isLoggedIn ? (
         <div className="loggedIn">
           <button onClick={downloadData}>Download Data</button>
+          {/*<button onClick={() => createDummyData(1000, 100)}>Dummy Data</button>*/}
           <div className="downloadLinks">
             <span className="listItem">{downloadState}</span>
 

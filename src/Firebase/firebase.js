@@ -14,10 +14,12 @@ let activityCounter = 0;
 export async function recordActivity(qualtricsUserId, cat, val, desc) {
   // This will be the ID of the activity in firebase -- a string, padded to 5 digits
   const id = activityCounter.toString().padStart(5, "0");
-  activityCounter = activityCounter + 1;
+  activityCounter++;
+
+  // Ensure the document exists, and update the activityCount so we know how many activities there are
+  setDoc(doc(db, "HIO", qualtricsUserId), { activityCount: activityCounter });
 
   const now = new Date();
-
   // Firebase requires collection/document alternation, which is inconvenient...
   // so every activity will have a document called "x," which holds the fields
   setDoc(doc(db, "HIO", qualtricsUserId, id, "x"), {
@@ -38,30 +40,57 @@ export async function downloadAllData(logFn) {
 
   let data = [];
   let users = userIDs.docs;
+  let promises = [];
+
   for (let i = 0; i < users.length; i++) {
-    // Call the passed function (to provide user updates on the status of the download)
     logFn(i, users.length);
-    let tmp = await downloadOneData(users[i].id);
-    data.push(tmp);
+    const activityData = await downloadOneData(users[i].id);
+    // Add the new data to the existing data
+    data = [...data, ...activityData];
   }
 
+  await Promise.all(promises);
   return data;
 }
 
 async function downloadOneData(qualtricsUserId) {
   let userData = [];
-  let i = 0;
+  let promises = [];
 
-  while (true) {
+  // Firebase doesn't let you get all subcollections of a document, so we've stored the number of records in a field
+  const thisUser = await getDoc(doc(db, "HIO", qualtricsUserId));
+  const activityCount = thisUser.data().activityCount;
+
+  for (let i = 0; i < activityCount; i++) {
     let activityID = i.toString().padStart(5, "0");
-    const activity = await getDoc(
-      doc(db, "HIO", qualtricsUserId, activityID, "x")
-    );
-    if (activity.exists()) {
-      userData.push({ activityID, qualtricsUserId, ...activity.data() });
-      i++;
-    } else {
-      return userData;
+    const prom = getDoc(doc(db, "HIO", qualtricsUserId, activityID, "x"));
+    promises.push(prom);
+    prom.then((activity) => {
+      if (activity.exists()) {
+        userData.push({ activityID, qualtricsUserId, ...activity.data() });
+      } else {
+        console.log("activity #" + i + " doesn't exist...");
+      }
+    });
+  }
+
+  await Promise.all(promises);
+  return userData;
+}
+
+// Creates dummy data to test the download process
+// n participants, each with m activities
+export async function createDummyData(n, m) {
+  for (let i = 0; i < n; i++) {
+    activityCounter = 0;
+    for (let j = 0; j < m; j++) {
+      recordActivity(
+        "Q-dummy-" + i,
+        "dummy",
+        "dummy-" + j,
+        "dummy data " + i + "-" + j
+      );
     }
   }
+  console.log("Dummy data done!");
 }
