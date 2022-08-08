@@ -21,6 +21,9 @@
 - [Usage](#usage)
 - [Getting Started](#getting_started)
 - [Acknowledgements](#acknowledgements)
+- [How It Works](#howitworks)
+- [Digital Trace Data](#dtd)
+- [Updating](#updating)
 
 ## About <a name="about"></a>
 
@@ -92,15 +95,53 @@ These instructions will get you a copy of the project up and running.
 
 ---
 
-# How It Works
+# How It Works <a name="howitworks"></a>
 
-TODO
+The HIO site consists of a single `Candidate`. The site expects three parameters in the URL. The candidate `name` is directly displayed to the participant, while the `qualtricsUserId` is used to identify the participant in the digital trace data. Based on the `load` parameter, the `Candidate` displays 6, 3, or 1 different documents. For easy no-code updating, the documents are provided by the researchers as Markdown files (in `/src/ApplicantData`) and rendered as rich text.
 
-# Updating Resume Information
+`Admin` is a bare-bones front-end for researchers to download the digital trace data from Firebase as a helpful CSV file for later import into Stata. The researcher enters the password (as defined in `/src/config.js`) and then starts the download. In order to not overwhelm Firebase with requests, the data is downloaded semi-synchronously; it may take a while. The download progress is displayed so researchers can be assured things are working right.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Digital Trace Data <a name="dtd"></a>
+
+The `Candidate` logs to Firebase every time the user clicks and or scrolls the HIO website. `Admin` produces a CSV file, which can be opened in any spreadsheet program for easy viewing. The CSV has 8 columns:
+
+- `activityID` is the identifier (within the participant) for this piece of digital trace data. They are generated sequentially, so can be used to determine order of user activities.
+- `qualtricsUserId` is the Qualtrics ResponseID, passed by Qualtrics to the `<iframe>`.
+- `timeReadable` is the time of the activity in a human-readable format.
+- `timestamp` is a timestamp, passed from a native JavaScript `Date` to Firebase as a timestamp.
+- `category` denotes what kind of activity this is:
+  - `load` = loading status of the page
+  - `click` = user clicked on a tab
+  - `scroll` = user scrolled a certain amount
+- `value` is the value of this specific action, and depends on the `category` of the action.
+
+  - `load` → `page_rendered`
+  - `click` → a number [0,5] corresponding to the tab the user clicked:
+
+    | #   | Document            |
+    | --- | ------------------- |
+    | 0   | Resume              |
+    | 1   | Cover Letter        |
+    | 2   | Initial Interview   |
+    | 3   | Skills Test         |
+    | 4   | Follow-Up Interview |
+    | 5   | Reference Check     |
+
+- `scroll` → the percent that the user has scrolled down the page
+- `description` is a human-readable, more verbose description of the activity, largely for the benefit of the researcher.
+- `timeEpoch` is the number of miliseconds between 00:00:00 UTC on 1 January 1970 and the time of the action ([Unix time](https://en.wikipedia.org/wiki/Unix_time)). It can be used as a simple way to order actions chronologically.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+---
+
+# Updating Resume Information <a name="updating"></a>
 
 Hi Claire! Here's the step-by-step info on updating the resume information.
 
-## The Very First Time
+## The Very First Time <a name="updating_firsttime"></a>
 
 1. **Navigate to the place where you want to set up the project.**
 
@@ -134,7 +175,9 @@ Hi Claire! Here's the step-by-step info on updating the resume information.
 
 7. **Generate a Personal Access Token.** It's like a password, but more safe. Go to [your account settings](https://github.com/settings/tokens/new) and fill out the fields. You can set the expiration for "Never." Make sure to select the `repo` scope, so you can write to the repository. **Paste this token into the password field in the login prompt.** (It may not look like anything pasted, but it has!)
 
-## Every Time
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Every Time <a name="updating_everytime"></a>
 
 1. **Navigate to the project.**
 
@@ -175,3 +218,5 @@ Hi Claire! Here's the step-by-step info on updating the resume information.
    ```
 
 9. **Check to make sure it worked.** The website may take a few minutes to update. Make sure everything looks the way it should - if not, let me know!
+
+<p align="right">(<a href="#top">back to top</a>)</p>

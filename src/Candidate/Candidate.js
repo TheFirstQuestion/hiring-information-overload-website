@@ -28,7 +28,7 @@ export default function Candidate(props) {
     recordActivity(
       qualtricsUserId,
       "load",
-      "page rendered",
+      "page_rendered",
       "page has rendered"
     );
     // Print for debugging purposes
@@ -97,13 +97,8 @@ export default function Candidate(props) {
         <Tabs onSelect={(index) => handleTabClick(index)}>
           <TabList>
             <Tab>Resume</Tab>
-
-            {infoLevel >= 1 && (
-              <>
-                <Tab>Cover Letter</Tab>
-                <Tab>Initial Interview</Tab>
-              </>
-            )}
+            <Tab>Cover Letter</Tab>
+            <Tab>Initial Interview</Tab>
 
             {infoLevel >= 2 && (
               <>
@@ -119,18 +114,14 @@ export default function Candidate(props) {
             <RenderContent content={resumeValue} />
           </TabPanel>
 
-          {infoLevel >= 1 && (
-            <>
-              <TabPanel>
-                <h2>Cover Letter</h2>
-                <RenderContent content={coverLetterValue} />
-              </TabPanel>
-              <TabPanel>
-                <h2>Initial Interview</h2>
-                <RenderContent content={interview1Value} />
-              </TabPanel>
-            </>
-          )}
+          <TabPanel>
+            <h2>Cover Letter</h2>
+            <RenderContent content={coverLetterValue} />
+          </TabPanel>
+          <TabPanel>
+            <h2>Initial Interview</h2>
+            <RenderContent content={interview1Value} />
+          </TabPanel>
 
           {infoLevel >= 2 && (
             <>
